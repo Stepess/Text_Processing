@@ -1,0 +1,76 @@
+Overview
+
+t-SNE – at a high level – basically works like this:
+
+Step 1: In the high-dimensional space, create a probability distribution that dictates the relationships between various neighboring points
+
+Step 2: It then tries to recreate a low dimensional space that follows that probability distribution as best as possible.
+
+The “t” in t-SNE comes from the t-distribution, which is the distribution used in Step 2. The “S” and “N” (“stochastic” and “neighbor”) come from the fact that it uses a probability distribution across neighboring points.
+
+Now let’s get into the nitty-gritty details.
+
+
+==========================================================================
+
+
+Truncated Singular Value Decomposition (SVD) is a matrix factorization technique that factors a matrix M into the three matrices U, Σ, and V. This is very similar to PCA, excepting that the factorization for SVD is done on the data matrix, whereas for PCA, the factorization is done on the covariance matrix. Typically, SVD is used under the hood to find the principle components of a matrix.
+
+
+=========================================================================
+
+K Mean
+
+Given an initial set of k means
+
+Assignment step: Assign each observation to the cluster whose mean has the least squared Euclidean distance, this is intuitively the "nearest" mean.
+
+Update step: Calculate the new means (centroids) of the observations in the new clusters.
+
+
+=========================================================================
+
+Hierarchical clustering Technique:
+Hierarchical clustering is one of the popular and easy to understand clustering technique. This clustering technique is divided into two types:
+Agglomerative
+Divisive
+Agglomerative Hierarchical clustering Technique: In this technique, initially each data point is considered as an individual cluster. At each iteration, the similar clusters merge with other clusters until one cluster or K clusters are formed.
+
+The basic algorithm of Agglomerative is straight forward.
+Compute the proximity matrix
+Let each data point be a cluster
+Repeat: Merge the two closest clusters and update the proximity matrix
+Until only a single cluster remains
+
+linkage -- how to measure distance between clusters
+
+
+=========================================================================
+
+Алгоритм DBSCAN может быть разложен на следующие шаги [6]:
+
+Находим точки в {\displaystyle \epsilon }\epsilon  окрестности каждой точки и выделяем основные точки с более чем minPts соседями.
+Находим связные компоненты основных точек на графе соседей, игнорируя все неосновные точки.
+Назначаем каждую неосновную ближайшему кластеру, если кластер является {\displaystyle \epsilon }\epsilon -соседним, в противном случае считаем точку шумом.
+
+https://habr.com/ru/post/322034/
+
+
+=========================================================================
+
+A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters. One can think of mixture models as generalizing k-means clustering to incorporate information about the covariance structure of the data as well as the centers of the latent Gaussians.
+
+Full means the components may independently adopt any position and shape.
+
+Tied means they have the same shape, but the shape may be anything.
+
+Diagonal means the contour axes are oriented along the coordinate axes, but otherwise the eccentricities may vary between components.
+
+Tied Diagonal is a "tied" situation where the contour axes are oriented along the coordinate axes. (I have added this because initially it was how I misinterpreted "diagonal.")
+
+Spherical is a "diagonal" situation with circular contours (spherical in higher dimensions, whence the name).
+
+=========================================================================
+
+
+
